@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนกวิชาคอมพิวเตอร์ | วิทยาลัยเทคนิคนางรอง</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .department-hero {
+            padding: 64px 24px;
+            background: linear-gradient(135deg, #4A0D1C, #8B1E3F);
+            color: white;
+            border-radius: 0 0 28px 28px;
+        }
+
+        .department-hero .inner,
+        .department-content {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .department-hero h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            color: #ece6e8;
+            margin: 12px 0;
+        }
+
+        .department-hero p {
+            line-height: 1.9;
+            max-width: 700px;
+        }
+
+        .department-content {
+            padding: 32px 20px 60px;
+        }
+
+        .department-panel {
+            background: white;
+            border: 1px solid #d66c8d;
+            border-radius: 20px;
+            padding: 26px;
+            margin: 22px 0;
+            box-shadow: 0 8px 25px #4A0D1C0A;
+        }
+
+        .department-panel h2 {
+            color: #4A0D1C;
+            margin-top: 0;
+        }
+
+        .department-photo {
+            width: 100%;
+            max-height: 430px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        .department-list {
+            padding-left: 22px;
+            line-height: 2;
+        }
+
+        .department-back {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #861B35;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .department-back:hover {
+            color: #4A0D1C;
+        }
+
+
+        .staff-section-title {
+            margin: 38px 0 8px;
+            color: #4A0D1C;
+            font-size: clamp(25px, 4vw, 34px);
+        }
+        .staff-intro { color: #77676B; margin: 0 0 24px; }
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin: 24px 0 38px;
+        }
+        .staff-card {
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #EAD7DD;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px #4A0D1C0A;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .staff-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px #4A0D1C18; }
+        .staff-photo-wrap { height: 260px; background: #f2e8eb; overflow: hidden; }
+        .staff-photo { display:block; width:100%; height:100%; object-fit:cover; object-position:center top; }
+        .staff-info { padding: 18px 20px 22px; }
+        .staff-role { display:inline-block; margin-bottom:9px; padding:5px 10px; border-radius:999px; background:#f7e9ed; color:#861B35; font-size:12px; font-weight:700; }
+        .staff-info h3 { margin:0 0 7px; color:#4A0D1C; font-size:18px; line-height:1.5; }
+        .staff-info p { margin:0; color:#77676B; font-size:14px; line-height:1.7; }
+        .staff-lead { border:2px solid #9B3654; }
+        .staff-lead .staff-role { color:#fff; background:#64152b; }
+        @media (max-width: 850px) { .staff-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 560px) { .staff-grid { grid-template-columns: 1fr; } .staff-photo-wrap { height: 320px; } }
+
+        .department-footer {
+            text-align: center;
+            padding: 24px;
+            color: #77676B;
+            border-top: 1px solid #EAD7DD;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="site-brand" href="index.html">
+        <img src="photo/logo.jpg" alt="ตราวิทยาลัยเทคนิคนางรอง">
+        <span>วิทยาลัยเทคนิคนางรอง<small>NANGRONG TECHNICAL COLLEGE</small></span>
+    </a>
+    <button class="site-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">☰ เมนู</button>
+    <nav class="site-nav" id="nav" aria-label="เมนูหลัก">
+            <a href="index.html">หน้าหลัก</a>
+            <a href="about.html">เกี่ยวกับวิทยาลัย</a>
+            <a href="computer.html" class="active" aria-current="page">แผนกคอมพิวเตอร์</a>
+            <a href="departments.html">แผนกวิชาที่เปิดสอน</a>
+            <a href="map.html">แผนที่</a>
+            <a href="contact.html">ติดต่อ</a>
+    </nav>
+</header>
+
+<section class="department-hero">
+    <div class="inner">
+        <p>COMPUTER DEPARTMENT</p>
+        <h1>แผนกวิชาคอมพิวเตอร์</h1>
+        <p>
+            พัฒนาความรู้ด้านคอมพิวเตอร์ เทคโนโลยีดิจิทัล
+            และทักษะการทำงานจริง เพื่อเตรียมความพร้อม
+            สำหรับการศึกษาต่อและการประกอบอาชีพ
+        </p>
+    </div>
+</section>
+
+<main class="department-content">
+    <a class="department-back" href="index.html">← กลับไปหน้าหลัก</a>
+
+    <section class="department-panel">
+        <h2>เกี่ยวกับแผนก</h2>
+        <p>
+            แผนกวิชาคอมพิวเตอร์เป็นพื้นที่แห่งการเรียนรู้
+            ที่ผู้เรียนสามารถพัฒนาทักษะด้านเทคโนโลยี
+            การใช้งานซอฟต์แวร์ การแก้ไขปัญหา และการประยุกต์ใช้
+            คอมพิวเตอร์ในงานจริง
+        </p>
+
+        <!-- เปลี่ยนชื่อไฟล์ให้ตรงกับรูปจริงใน photo -->
+        <img
+            src="photo/computer1.jpg"
+            alt="บรรยากาศการเรียนด้านคอมพิวเตอร์"
+            class="department-photo"
+            onerror="this.style.display='none'">
+    </section>
+
+
+    <section aria-labelledby="staff-heading">
+        <h2 class="staff-section-title" id="staff-heading">บุคลากรแผนกวิชาคอมพิวเตอร์</h2>
+        <p class="staff-intro">คณะครูและบุคลากรผู้ดูแลการเรียนการสอนของแผนกวิชาคอมพิวเตอร์</p>
+        <div class="staff-grid">
+            <article class="staff-card staff-lead">
+                <div class="staff-photo-wrap"><img class="staff-photo" src="photo/1.jpg" alt="นายอุดม สติภา" loading="lazy" onerror="this.style.display='none'"></div>
+                <div class="staff-info"><span class="staff-role">หัวหน้าแผนก</span><h3>นายอุดม สติภา</h3><p>ตำแหน่ง ครูชำนาญการ</p></div>
+            </article>
+            <article class="staff-card"><div class="staff-photo-wrap"><img class="staff-photo" src="photo/0.jpg" alt="นางสาวมยุรี พงษ์อาภา" loading="lazy" onerror="this.style.display='none'"></div><div class="staff-info"><span class="staff-role">ครูชำนาญการพิเศษ</span><h3>นางสาวมยุรี พงษ์อาภา</h3><p>ครูแผนกวิชาคอมพิวเตอร์</p></div></article>
+            <article class="staff-card"><div class="staff-photo-wrap"><img class="staff-photo" src="photo/2.jpg" alt="นางสาวลิตา วรรณตรง" loading="lazy" onerror="this.style.display='none'"></div><div class="staff-info"><span class="staff-role">ครูชำนาญการ</span><h3>นางสาวลิตา วรรณตรง</h3><p>ครูแผนกวิชาคอมพิวเตอร์</p></div></article>
+            <article class="staff-card"><div class="staff-photo-wrap"><img class="staff-photo" src="photo/3.jpg" alt="นางจรัสศรี ร่มเย็น" loading="lazy" onerror="this.style.display='none'"></div><div class="staff-info"><span class="staff-role">ครู</span><h3>นางจรัสศรี ร่มเย็น</h3><p>ครูแผนกวิชาคอมพิวเตอร์</p></div></article>
+            <article class="staff-card"><div class="staff-photo-wrap"><img class="staff-photo" src="photo/4.jpg" alt="นางสาวศิรประภา รอดจากเข็ญ" loading="lazy" onerror="this.style.display='none'"></div><div class="staff-info"><span class="staff-role">พนักงานราชการ (ครู)</span><h3>นางสาวศิรประภา รอดจากเข็ญ</h3><p>บุคลากรแผนกวิชาคอมพิวเตอร์</p></div></article>
+            <article class="staff-card"><div class="staff-photo-wrap"><img class="staff-photo" src="photo/5.jpg" alt="นายชัฏชกริช ต้นสิริธนโสภา" loading="lazy" onerror="this.style.display='none'"></div><div class="staff-info"><span class="staff-role">พนักงานราชการ (ครู)</span><h3>นายชัฏชกริช ต้นสิริธนโสภา</h3><p>บุคลากรแผนกวิชาคอมพิวเตอร์</p></div></article>
+            <article class="staff-card"><div class="staff-photo-wrap"><img class="staff-photo" src="photo/6.jpg" alt="นางสาวกิติยาภรณ์ พะเนตรรัมย์" loading="lazy" onerror="this.style.display='none'"></div><div class="staff-info"><span class="staff-role">ครูพิเศษสอน</span><h3>นางสาวกิติยาภรณ์ พะเนตรรัมย์</h3><p>ครูพิเศษสอน แผนกวิชาคอมพิวเตอร์</p></div></article>
+        </div>
+    </section>
+
+    <section class="department-panel">
+        <h2>ตัวอย่างทักษะที่เกี่ยวข้อง</h2>
+        <ul class="department-list">
+            <li>การใช้งานและดูแลรักษาคอมพิวเตอร์</li>
+            <li>การติดตั้งระบบปฏิบัติการและโปรแกรม</li>
+            <li>การดูแลระบบเครือข่ายคอมพิวเตอร์</li>
+            <li>การเขียนโปรแกรมและพัฒนาเว็บไซต์</li>
+            <li>การใช้เทคโนโลยีดิจิทัลเพื่อแก้ปัญหา</li>
+        </ul>
+    </section>
+
+    <section class="department-panel">
+        <h2>สาขาในแผนกคอมพิวเตอร์</h2>
+        <p>
+           
+        </p>
+        <img
+            src="photo/computer-activity.jpg"
+            alt="สาขาในแผนกคอมพิวเตอร์"
+            class="department-photo"
+            onerror="this.style.display='none'">
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 เว็บไซต์แนะนำวิทยาลัยเทคนิคนางรอง</p>
+    <a href="https://nrtech.ac.th/" target="_blank" rel="noopener noreferrer">เว็บไซต์ทางการของวิทยาลัย ↗</a>
+</footer>
+
+<script>
+(function () {
+    const button = document.querySelector(".site-menu");
+    const nav = document.querySelector(".site-nav");
+    if (!button || !nav) return;
+    button.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        button.setAttribute("aria-expanded", String(isOpen));
+    });
+})();
+</script>
+</body>
+</html>

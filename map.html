@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนที่และการเดินทาง | วิทยาลัยเทคนิคนางรอง</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a class="site-brand" href="index.html">
+        <img src="photo/logo.jpg" alt="ตราวิทยาลัยเทคนิคนางรอง">
+        <span>วิทยาลัยเทคนิคนางรอง<small>NANGRONG TECHNICAL COLLEGE</small></span>
+    </a>
+    <button class="site-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">☰ เมนู</button>
+    <nav class="site-nav" id="nav" aria-label="เมนูหลัก">
+            <a href="index.html">หน้าหลัก</a>
+            <a href="about.html">เกี่ยวกับวิทยาลัย</a>
+            <a href="computer.html">แผนกคอมพิวเตอร์</a>
+            <a href="departments.html">แผนกวิชาที่เปิดสอน</a>
+            <a href="map.html" class="active" aria-current="page">แผนที่</a>
+            <a href="contact.html">ติดต่อ</a>
+    </nav>
+</header>
+
+<section class="page-banner">
+    <div>
+        <span class="eyebrow">LOCATION & DIRECTIONS</span>
+        <h1>แผนที่และการเดินทาง</h1>
+        <p>ค้นหาที่ตั้งและวางแผนการเดินทางมายังวิทยาลัย</p>
+    </div>
+</section>
+
+<main class="page-content">
+    <a href="index.html" class="back-link">← กลับไปหน้าหลัก</a>
+
+    <section class="content-panel">
+        <h2>ที่ตั้งวิทยาลัย</h2>
+        <p>
+            วิทยาลัยเทคนิคนางรอง<br>
+            1 หมู่ 1 ถนนบ้านเก่า–แพงพวย<br>
+            ตำบลนางรอง อำเภอนางรอง จังหวัดบุรีรัมย์ 31110
+        </p>
+
+        <!-- แผนที่แสดงตำแหน่งจากคำค้น -->
+        <iframe
+            class="map-frame"
+            title="แผนที่วิทยาลัยเทคนิคนางรอง"
+            src="https://maps.google.com/maps?q=วิทยาลัยเทคนิคนางรอง%20บุรีรัมย์&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <!-- เปิด Google Maps เพื่อวางแผนเส้นทาง -->
+        <a
+            class="action-link"
+            href="https://www.google.com/maps/dir/?api=1&destination=วิทยาลัยเทคนิคนางรอง%20บุรีรัมย์"
+            target="_blank"
+            rel="noopener noreferrer">
+            เปิด Google Maps เพื่อนำทาง ↗
+        </a>
+    </section>
+
+    <section class="content-panel">
+        <h2>การเดินทาง</h2>
+        <p>
+            สามารถใช้ Google Maps ค้นหาวิทยาลัยและตรวจสอบเส้นทาง
+            จากตำแหน่งปัจจุบันของคุณได้
+            โดยระบบจะแสดงเส้นทางตามข้อมูลที่ Google Maps มีให้บริการ
+        </p>
+        <p>
+            ก่อนออกเดินทาง ควรตรวจสอบสภาพการจราจร
+            และเส้นทางที่เหมาะสมอีกครั้ง
+        </p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 เว็บไซต์แนะนำวิทยาลัยเทคนิคนางรอง</p>
+    <a href="https://nrtech.ac.th/" target="_blank" rel="noopener noreferrer">เว็บไซต์ทางการของวิทยาลัย ↗</a>
+</footer>
+
+<script>
+(function () {
+    const button = document.querySelector(".site-menu");
+    const nav = document.querySelector(".site-nav");
+    if (!button || !nav) return;
+    button.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        button.setAttribute("aria-expanded", String(isOpen));
+    });
+})();
+</script>
+</body>
+</html>

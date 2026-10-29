@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกี่ยวกับวิทยาลัย | วิทยาลัยเทคนิคนางรอง</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a class="site-brand" href="index.html">
+        <img src="photo/logo.jpg" alt="ตราวิทยาลัยเทคนิคนางรอง">
+        <span>วิทยาลัยเทคนิคนางรอง<small>NANGRONG TECHNICAL COLLEGE</small></span>
+    </a>
+    <button class="site-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">☰ เมนู</button>
+    <nav class="site-nav" id="nav" aria-label="เมนูหลัก">
+            <a href="index.html">หน้าหลัก</a>
+            <a href="about.html" class="active" aria-current="page">เกี่ยวกับวิทยาลัย</a>
+            <a href="computer.html">แผนกคอมพิวเตอร์</a>
+            <a href="departments.html">แผนกวิชาที่เปิดสอน</a>
+            <a href="map.html">แผนที่</a>
+            <a href="contact.html">ติดต่อ</a>
+    </nav>
+</header>
+
+<section class="page-banner">
+    <div>
+        <span class="eyebrow">ABOUT OUR COLLEGE</span>
+        <h1>รู้จักวิทยาลัยเทคนิคนางรอง</h1>
+        <p>ข้อมูลทั่วไป แนวทางการศึกษา และการพัฒนาทักษะวิชาชีพ</p>
+    </div>
+</section>
+
+<main class="page-content">
+    <a href="index.html" class="back-link">← กลับไปหน้าหลัก</a>
+
+    <section class="content-panel">
+        <h2>เกี่ยวกับวิทยาลัย</h2>
+        <p>
+            วิทยาลัยเทคนิคนางรองเป็นสถานศึกษาด้านอาชีวศึกษา
+            มุ่งเน้นการจัดการเรียนรู้และพัฒนาทักษะวิชาชีพ
+            เพื่อเตรียมความพร้อมให้ผู้เรียนสามารถนำความรู้
+            ไปประยุกต์ใช้ในการทำงานและการศึกษาต่อ
+        </p>
+
+        <!-- เปลี่ยนชื่อไฟล์รูปได้ที่ src -->
+        <img
+            src="photo/college-about.jpg"
+            alt="ภาพบรรยากาศวิทยาลัย"
+            class="content-photo"
+            onerror="this.style.display='none'">
+    </section>
+
+    <section class="content-panel">
+        <h2>วิสัยทัศน์และเป้าหมาย</h2>
+        <p>
+            มุ่งมั่นจัดการอาชีวศึกษาให้มีคุณภาพตามมาตรฐานสากล
+            พัฒนาผู้เรียนให้มีสมรรถนะ คุณธรรม และจริยธรรม
+            พร้อมตอบสนองความต้องการของตลาดแรงงานและสังคม
+        </p>
+    </section>
+
+    <section class="content-panel">
+        <h2>ภาพกิจกรรมและบรรยากาศ</h2>
+        <p>
+            วิทยาลัยเทคนิคนางรองจัดการประชุมคณะกรรมการภาคี 4 ฝ่าย 
+            เพื่อหารือและพิจารณาแนวทางการดำเนินโครงการสนับสนุนค่าใช้จ่ายในการจัดการศึกษา ตั้งแต่ระดับอนุบาลจนจบการศึกษาขั้นพื้นฐาน ประจำภาคเรียนที่ 2 ปีการศึกษา 2569
+        
+        </p>
+
+        <img
+            src="photo/activity.jpg"
+            alt="ภาพกิจกรรมของวิทยาลัย"
+            class="content-photo"
+            onerror="this.style.display='none'">
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 เว็บไซต์แนะนำวิทยาลัยเทคนิคนางรอง</p>
+    <a href="https://nrtech.ac.th/" target="_blank" rel="noopener noreferrer">เว็บไซต์ทางการของวิทยาลัย ↗</a>
+</footer>
+
+<script>
+(function () {
+    const button = document.querySelector(".site-menu");
+    const nav = document.querySelector(".site-nav");
+    if (!button || !nav) return;
+    button.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        button.setAttribute("aria-expanded", String(isOpen));
+    });
+})();
+</script>
+</body>
+</html>

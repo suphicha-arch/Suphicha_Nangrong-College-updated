@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แผนกวิชาที่เปิดสอน | วิทยาลัยเทคนิคนางรอง</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --wine: #64152b;
+  --wine2: #861d3b;
+  --light: #fff5f7;
+  --text: #302329;
+  --muted: #796a70;
+  --border: #eadde1;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Noto Sans Thai", sans-serif;
+  background: #fcf9fa;
+  color: var(--text);
+}
+a { text-decoration: none; color: inherit; }
+button, input { font: inherit; }
+
+header {
+  background: var(--wine);
+  color: white;
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 15px #0001;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+}
+.brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 3px;
+}
+.brand small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  opacity: .8;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+nav a {
+  padding: 9px 12px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+nav a:hover, nav a.active {
+  background: #ffffff20;
+}
+.menu {
+  display: none;
+  color: white;
+  background: transparent;
+  border: 1px solid #ffffff66;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.hero {
+  padding: 65px 7%;
+  background:
+    linear-gradient(90deg, #fff5f7 15%, #fff5f7dd 60%, #fff5f766),
+    url("photo/college.jpg") center/cover;
+}
+.hero span {
+  color: var(--wine2);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.hero h1 {
+  color: var(--wine);
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.3;
+  margin: 12px 0;
+}
+.hero p {
+  max-width: 650px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.hero a {
+  display: inline-block;
+  margin-top: 15px;
+  background: var(--wine);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+main {
+  max-width: 1350px;
+  margin: auto;
+  padding: 42px 5% 60px;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+.section-head h2 {
+  margin: 0;
+  color: var(--wine);
+  font-size: clamp(24px, 3vw, 32px);
+}
+.section-head p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.count {
+  white-space: nowrap;
+  background: var(--light);
+  border: 1px solid var(--border);
+  color: var(--wine);
+  border-radius: 30px;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.toolbar {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 22px;
+}
+.search {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 12px;
+}
+.search:focus { border-color: var(--wine2); }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filters button {
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  color: var(--wine);
+  cursor: pointer;
+}
+.filters button:hover,
+.filters button.active {
+  background: var(--wine);
+  color: white;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 10px;
+  gap: 15px;
+  transition: .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #64152b16;
+  border-color: #d7b4bf;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 11px;
+  background: #f5e5ea;
+}
+.card-content {
+  padding: 7px 8px 7px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.number {
+  background: var(--wine);
+  color: white;
+  border-radius: 7px;
+  padding: 4px 9px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.card h3 {
+  color: var(--wine);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 10px 0 7px;
+}
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 12px;
+}
+.detail {
+  margin-top: auto;
+  background: var(--light);
+  color: var(--wine);
+  border: 1px solid #efdce2;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.detail:hover { background: #f0dce2; }
+.empty {
+  display: none;
+  text-align: center;
+  padding: 40px 15px;
+  color: var(--muted);
+}
+.notice {
+  margin-top: 28px;
+  padding: 18px;
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 13px;
+}
+footer {
+  background: var(--wine);
+  color: white;
+  padding: 25px 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+}
+footer p { margin: 0; }
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #17070dcc;
+  z-index: 30;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.modal.open { display: flex; }
+.modal-box {
+  background: white;
+  width: min(550px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 25px;
+  border-radius: 18px;
+}
+.modal-box h2 { color: var(--wine); }
+.modal-box p { line-height: 1.9; color: var(--muted); }
+.close {
+  float: right;
+  background: var(--wine);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+@media(max-width: 900px) {
+  header { flex-wrap: wrap; }
+  .menu { display: block; }
+  nav { display: none; width: 100%; flex-direction: column; }
+  nav.open { display: flex; }
+  nav a { padding: 11px; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media(max-width: 520px) {
+  .hero { padding: 42px 6%; }
+  main { padding: 30px 4% 45px; }
+  .section-head { align-items: flex-start; flex-direction: column; }
+  .card { grid-template-columns: 1fr; gap: 10px; }
+  .card img { height: auto; aspect-ratio: 16/9; max-height: none; }
+  .card-content { padding: 5px; }
+  .card h3 { font-size: 18px; }
+  footer { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="site-brand" href="index.html">
+        <img src="photo/logo.jpg" alt="ตราวิทยาลัยเทคนิคนางรอง">
+        <span>วิทยาลัยเทคนิคนางรอง<small>NANGRONG TECHNICAL COLLEGE</small></span>
+    </a>
+    <button class="site-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">☰ เมนู</button>
+    <nav class="site-nav" id="nav" aria-label="เมนูหลัก">
+            <a href="index.html">หน้าหลัก</a>
+            <a href="about.html">เกี่ยวกับวิทยาลัย</a>
+            <a href="computer.html">แผนกคอมพิวเตอร์</a>
+            <a href="departments.html" class="active" aria-current="page">แผนกวิชาที่เปิดสอน</a>
+            <a href="map.html">แผนที่</a>
+            <a href="contact.html">ติดต่อ</a>
+    </nav>
+</header>
+
+
+<section class="departments-hero">
+  <div class="departments-hero-content">
+    <div class="departments-hero-label">OUR DEPARTMENTS</div>
+
+    <div class="departments-hero-text">
+      <h1>แผนกวิชาที่เปิดสอน</h1>
+      <p>
+        สำรวจแผนกวิชาของวิทยาลัยเทคนิคนางรอง
+        เลือกค้นหาตามชื่อแผนกหรือประเภทสาขา
+        เพื่อทำความรู้จักกับสายวิชาชีพที่สนใจ
+      </p>
+
+      <a href="#department-list" class="departments-hero-button">
+        สำรวจแผนกวิชา ↓
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<main id="departments">
+  <div class="section-head">
+    <div>
+      <h2>สำรวจสาขาวิชา</h2>
+      <p>เลือกแผนกที่สนใจเพื่อดูรายละเอียดเบื้องต้น</p>
+    </div>
+    <span class="count" id="count">10 แผนก</span>
+  </div>
+
+  <div class="toolbar">
+    <input
+      type="search"
+      id="search"
+      class="search"
+      placeholder="🔍 ค้นหาชื่อแผนก เช่น ช่างยนต์ บัญชี คอมพิวเตอร์..."
+      aria-label="ค้นหาแผนกวิชา"
+    >
+
+    <div class="filters">
+      <button class="active" data-filter="all">ทั้งหมด</button>
+      <button data-filter="industry">อุตสาหกรรม</button>
+      <button data-filter="business">บริหารธุรกิจ</button>
+      <button data-filter="technology">เทคโนโลยี</button>
+      <button data-filter="service">บริการ</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <article class="card" data-category="industry" data-name="ช่างยนต์ แผนกวิชาช่างยนต์">
+      <img src="photo/automotive.jpg"
+           alt="แผนกวิชาช่างยนต์" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 01</span>
+        <h3>แผนกวิชาช่างยนต์</h3>
+        <p>เรียนรู้เกี่ยวกับเครื่องยนต์ ระบบรถยนต์ การตรวจเช็ก บำรุงรักษา และการวิเคราะห์ปัญหารถยนต์</p>
+        <button class="detail" data-title="แผนกวิชาช่างยนต์"
+          data-desc="ศึกษาเครื่องยนต์ ระบบส่งกำลัง ระบบช่วงล่าง ระบบไฟฟ้ารถยนต์ การตรวจวิเคราะห์ข้อขัดข้อง และการบำรุงรักษารถยนต์">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="industry" data-name="ช่างกลโรงงาน แผนกวิชาช่างกลโรงงาน">
+      <img src="photo/machining.jpg"
+           alt="แผนกวิชาช่างกลโรงงาน" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 02</span>
+        <h3>แผนกวิชาช่างกลโรงงาน</h3>
+        <p>เรียนรู้การผลิตชิ้นงาน เครื่องมือกล การวัดละเอียด และกระบวนการทำงานในโรงงานอุตสาหกรรม</p>
+        <button class="detail" data-title="แผนกวิชาช่างกลโรงงาน"
+          data-desc="ศึกษาเครื่องมือกล การกลึง การกัด การเจาะ การวัดละเอียด การอ่านแบบเครื่องกล และกระบวนการผลิตชิ้นงาน">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="industry" data-name="ช่างเชื่อมโลหะ แผนกวิชาช่างเชื่อมโลหะ">
+      <img src="photo/welding.jpg"
+           alt="แผนกวิชาช่างเชื่อมโลหะ" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 03</span>
+        <h3>แผนกวิชาช่างเชื่อมโลหะ</h3>
+        <p>เรียนรู้กระบวนการเชื่อมโลหะ การประกอบชิ้นงาน การอ่านแบบ และความปลอดภัยในการทำงาน</p>
+        <button class="detail" data-title="แผนกวิชาช่างเชื่อมโลหะ"
+          data-desc="ศึกษาเทคนิคการเชื่อมโลหะ การตัดและประกอบชิ้นงาน การอ่านแบบงานเชื่อม การตรวจสอบรอยเชื่อม และความปลอดภัย">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="industry" data-name="ไฟฟ้ากำลัง แผนกวิชาไฟฟ้ากำลัง">
+      <img src="photo/electrical.jpg"
+           alt="แผนกวิชาไฟฟ้ากำลัง" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 04</span>
+        <h3>แผนกวิชาไฟฟ้ากำลัง</h3>
+        <p>เรียนรู้ระบบไฟฟ้า การติดตั้งระบบไฟฟ้า การควบคุมมอเตอร์ และการตรวจสอบระบบไฟฟ้า</p>
+        <button class="detail" data-title="แผนกวิชาไฟฟ้ากำลัง"
+          data-desc="ศึกษาอุปกรณ์ไฟฟ้า การติดตั้งและบำรุงรักษาระบบไฟฟ้า การควบคุมมอเตอร์ ระบบไฟฟ้ากำลัง และมาตรฐานความปลอดภัย">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="technology" data-name="อิเล็กทรอนิกส์ แผนกวิชาช่างอิเล็กทรอนิกส์">
+      <img src="photo/electronics.jpg"
+           alt="แผนกวิชาช่างอิเล็กทรอนิกส์" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 05</span>
+        <h3>แผนกวิชาช่างอิเล็กทรอนิกส์</h3>
+        <p>เรียนรู้วงจรอิเล็กทรอนิกส์ อุปกรณ์ควบคุม การตรวจวัดสัญญาณ และการซ่อมบำรุงอุปกรณ์</p>
+        <button class="detail" data-title="แผนกวิชาช่างอิเล็กทรอนิกส์"
+          data-desc="ศึกษาอุปกรณ์และวงจรอิเล็กทรอนิกส์ การใช้เครื่องมือวัด การประกอบวงจร การวิเคราะห์ข้อขัดข้อง และระบบควบคุม">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="industry" data-name="โยธา แผนกวิชาโยธา">
+      <img src="photo/civil.jpg"
+           alt="แผนกวิชาโยธา" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 06</span>
+        <h3>แผนกวิชาโยธา</h3>
+        <p>เรียนรู้การเขียนแบบก่อสร้าง งานสำรวจ การก่อสร้างอาคาร และการอ่านแบบทางวิศวกรรม</p>
+        <button class="detail" data-title="แผนกวิชาโยธา"
+          data-desc="ศึกษาแบบก่อสร้าง การสำรวจ งานโครงสร้าง วัสดุก่อสร้าง การประมาณราคา และขั้นตอนการก่อสร้าง">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="business" data-name="บัญชี แผนกวิชาการบัญชี">
+      <img src="photo/accounting.jpg"
+           alt="แผนกวิชาการบัญชี" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 07</span>
+        <h3>แผนกวิชาการบัญชี</h3>
+        <p>เรียนรู้การบันทึกบัญชี การจัดทำงบการเงิน การใช้โปรแกรมบัญชี และการจัดการเอกสารทางการเงิน</p>
+        <button class="detail" data-title="แผนกวิชาการบัญชี"
+          data-desc="ศึกษาหลักการบัญชี การบันทึกรายการค้า การจัดทำงบการเงิน ภาษี และการใช้เทคโนโลยีช่วยงานบัญชี">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="business" data-name="การตลาด แผนกวิชาการตลาด">
+      <img src="photo/marketing.jpg"
+           alt="แผนกวิชาการตลาด" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 08</span>
+        <h3>แผนกวิชาการตลาด</h3>
+        <p>เรียนรู้การวางแผนการตลาด การขาย การสื่อสารกับลูกค้า และการตลาดผ่านช่องทางออนไลน์</p>
+        <button class="detail" data-title="แผนกวิชาการตลาด"
+          data-desc="ศึกษาพฤติกรรมผู้บริโภค การวางแผนการตลาด การขาย การส่งเสริมการขาย การสร้างแบรนด์ และการตลาดดิจิทัล">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="technology" data-name="คอมพิวเตอร์ เทคโนโลยีสารสนเทศ ไอที">
+      <img src="photo/computer.jpg"
+           alt="แผนกวิชาคอมพิวเตอร์และเทคโนโลยีสารสนเทศ" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 09</span>
+        <h3>แผนกวิชาคอมพิวเตอร์และเทคโนโลยีสารสนเทศ</h3>
+        <p>เรียนรู้คอมพิวเตอร์ ระบบเครือข่าย การเขียนโปรแกรม การดูแลระบบ และเทคโนโลยีดิจิทัล</p>
+        <button class="detail" data-title="แผนกวิชาคอมพิวเตอร์และเทคโนโลยีสารสนเทศ"
+          data-desc="ศึกษาเทคโนโลยีคอมพิวเตอร์ ระบบเครือข่าย การเขียนโปรแกรม การพัฒนาเว็บไซต์ การจัดการข้อมูล และการดูแลระบบคอมพิวเตอร์">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="service" data-name="การโรงแรม แผนกวิชาการโรงแรม">
+      <img src="photo/hotel.jpg"
+           alt="แผนกวิชาการโรงแรม" loading="lazy">
+      <div class="card-content">
+        <span class="number">DEPARTMENT 10</span>
+        <h3>แผนกวิชาการโรงแรม</h3>
+        <p>เรียนรู้การบริการส่วนหน้า การต้อนรับ การจัดการงานโรงแรม และมาตรฐานการบริการ</p>
+        <button class="detail" data-title="แผนกวิชาการโรงแรม"
+          data-desc="ศึกษาเกี่ยวกับงานต้อนรับ การบริการส่วนหน้า การดูแลห้องพัก การบริการอาหารและเครื่องดื่ม บุคลิกภาพ และมาตรฐานงานบริการ">ดูรายละเอียด →</button>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="empty" id="empty">
+    <h3>ไม่พบแผนกที่ค้นหา</h3>
+    <p>ลองค้นหาด้วยคำอื่น หรือเลือกแสดงแผนกทั้งหมด</p>
+  </div>
+
+  <div class="notice">
+    <strong>หมายเหตุ:</strong>
+    รายละเอียดในหน้านี้เป็นข้อมูลแนะนำเบื้องต้น
+    ควรตรวจสอบชื่อสาขา หลักสูตร และข้อมูลการรับสมัคร
+    กับวิทยาลัยเทคนิคนางรองก่อนเผยแพร่เว็บไซต์จริง
+  </div>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 เว็บไซต์แนะนำวิทยาลัยเทคนิคนางรอง</p>
+    <a href="https://nrtech.ac.th/" target="_blank" rel="noopener noreferrer">เว็บไซต์ทางการของวิทยาลัย ↗</a>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="close" id="closeModal" aria-label="ปิดหน้าต่าง">✕ ปิด</button>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <p><small>ข้อมูลนี้เป็นคำอธิบายเบื้องต้น โปรดตรวจสอบหลักสูตรจริงกับวิทยาลัย</small></p>
+  </div>
+</div>
+
+<script>
+const search = document.getElementById("search");
+const cards = [...document.querySelectorAll(".card")];
+const count = document.getElementById("count");
+const empty = document.getElementById("empty");
+const filterButtons = document.querySelectorAll(".filters button");
+
+let currentFilter = "all";
+
+function filterDepartments() {
+  const keyword = search.value.trim().toLowerCase();
+  let visible = 0;
+
+  cards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    const title = card.querySelector("h3").textContent.toLowerCase();
+    const matchesText = name.includes(keyword) || title.includes(keyword);
+    const matchesCategory =
+      currentFilter === "all" ||
+      card.dataset.category === currentFilter;
+
+    const show = matchesText && matchesCategory;
+    card.style.display = show ? "grid" : "none";
+
+    if (show) visible++;
+  });
+
+  count.textContent = visible + " แผนก";
+  empty.style.display = visible ? "none" : "block";
+}
+
+search.addEventListener("input", filterDepartments);
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+    currentFilter = button.dataset.filter;
+    filterDepartments();
+  });
+});
+
+// เมนูสำหรับโทรศัพท์
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", isOpen);
+});
+
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+// หน้าต่างรายละเอียดแผนก
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const closeModal = document.getElementById("closeModal");
+
+document.querySelectorAll(".detail").forEach(button => {
+  button.addEventListener("click", () => {
+    modalTitle.textContent = button.dataset.title;
+    modalDesc.textContent = button.dataset.desc;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    closeModal.focus();
+  });
+});
+
+function hideModal() {
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+closeModal.addEventListener("click", hideModal);
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) hideModal();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") hideModal();
+});
+</script>
+
+</body>
+</html>

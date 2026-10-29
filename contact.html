@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อวิทยาลัย | วิทยาลัยเทคนิคนางรอง</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a class="site-brand" href="index.html">
+        <img src="photo/logo.jpg" alt="ตราวิทยาลัยเทคนิคนางรอง">
+        <span>วิทยาลัยเทคนิคนางรอง<small>NANGRONG TECHNICAL COLLEGE</small></span>
+    </a>
+    <button class="site-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">☰ เมนู</button>
+    <nav class="site-nav" id="nav" aria-label="เมนูหลัก">
+            <a href="index.html">หน้าหลัก</a>
+            <a href="about.html">เกี่ยวกับวิทยาลัย</a>
+            <a href="computer.html">แผนกคอมพิวเตอร์</a>
+            <a href="departments.html">แผนกวิชาที่เปิดสอน</a>
+            <a href="map.html">แผนที่</a>
+            <a href="contact.html" class="active" aria-current="page">ติดต่อ</a>
+    </nav>
+</header>
+
+<section class="page-banner">
+    <div>
+        <span class="eyebrow">CONTACT US</span>
+        <h1>ติดต่อวิทยาลัย</h1>
+        <p>ช่องทางติดต่อและข้อมูลสำหรับผู้ที่สนใจ</p>
+    </div>
+</section>
+
+<main class="page-content">
+    <a href="index.html" class="back-link">← กลับไปหน้าหลัก</a>
+
+    <section class="content-panel">
+        <h2>ข้อมูลติดต่อ</h2>
+
+        <div class="contact-item">
+            <strong>ชื่อสถานศึกษา</strong>
+            วิทยาลัยเทคนิคนางรอง
+        </div>
+
+        <div class="contact-item">
+            <strong>ที่อยู่</strong>
+            1 หมู่ 1 ถนนบ้านเก่า–แพงพวย
+            ตำบลนางรอง อำเภอนางรอง
+            จังหวัดบุรีรัมย์ 31110
+        </div>
+
+        <div class="contact-item">
+            <strong>โทรศัพท์</strong>
+            <a href="tel:044631556">044-631-556</a>
+        </div>
+
+        <div class="contact-item">
+            <strong>เว็บไซต์ทางการวิทยาลัยเทคนิคนางรอง</strong>
+            <a href="https://nrtech.ac.th/"
+               target="_blank"
+               rel="noopener noreferrer">
+                https://nrtech.ac.th/
+            </a>
+            
+        </div>
+
+        <a class="action-link" href="tel:044631556">
+            โทรติดต่อวิทยาลัย
+        </a>
+
+        <a class="action-link"
+           href="https://www.google.com/goto?url=CAESXgHrOzAViKUIjMvvgfxevy9YIdxv1RoD9ceRqM_FBZrZDNJJM6KEWCzsvtKuNtKhEOM9kg_zu7NGDwFoOSZASxozTSsFBhIVL8aquIfVS4zz8oY7wfFcsgB9Z7JQQW4"
+           target="_blank"
+           rel="noopener noreferrer">
+            Facebook
+        </a>
+
+        
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 เว็บไซต์แนะนำวิทยาลัยเทคนิคนางรอง</p>
+    <a href="https://nrtech.ac.th/" target="_blank" rel="noopener noreferrer">เว็บไซต์ทางการของวิทยาลัย ↗</a>
+</footer>
+
+<script>
+(function () {
+    const button = document.querySelector(".site-menu");
+    const nav = document.querySelector(".site-nav");
+    if (!button || !nav) return;
+    button.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        button.setAttribute("aria-expanded", String(isOpen));
+    });
+})();
+</script>
+</body>
+</html>
